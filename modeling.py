@@ -871,6 +871,7 @@ def transformer_model(input_tensor,
             kernel_initializer=create_initializer(initializer_range))
 
 
+      tf.logging.info("!!!!!!!!!!!!!!!! Including extra intermediate dense layer !!!!!!!!!!!!!!1")
       with tf.variable_scope("intermediate"):
         intermediate_output2 = tf.layers.dense(
             intermediate_output1,
