@@ -870,15 +870,6 @@ def transformer_model(input_tensor,
             activation=intermediate_act_fn,
             kernel_initializer=create_initializer(initializer_range))
 
-
-      tf.logging.info("!!!!!!!!!!!!!!!! Including extra intermediate dense layer !!!!!!!!!!!!!!")
-      with tf.variable_scope("intermediate2"):
-        intermediate_output2 = tf.layers.dense(
-            intermediate_output1,
-            intermediate_size,
-            activation=intermediate_act_fn,
-            kernel_initializer=create_initializer(initializer_range))
-
       # Down-project back to `hidden_size` then add the residual.
       with tf.variable_scope("output"):
         layer_output = tf.layers.dense(
